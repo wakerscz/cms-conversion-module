@@ -23,6 +23,9 @@ $this->conversionManager->sendMail($values, 'Poptávkový formulář z Vašeho w
 
 ## Minimální konfigurace
 
+### Instalace
+Přes composer `./sc composer require wakers/cms-conversion-module:dev-master`
+
 ### Připojíme soubory
 1. V souboru app.neon:
 `./../../vendor/wakers/cms-conversion-module/src/config/config.neon`
