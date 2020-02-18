@@ -24,11 +24,15 @@ class ContactForm extends BaseControl
     protected $conversionManager;
 
     /**
-     * Override your unique token
+     * AntiSpam: Your unique token
      * @var string
      */
     protected $FORM_TRUE_TOKEN = 'hlsrn252q69@gsahPP342dPT913UJ9GOFffd#01';
 
+    /**
+     * AntiSpam: Timeout before submitting the form
+     * @var int
+     */
     protected $FORM_TIMEOUT_SEC = 15;
 
     /**
