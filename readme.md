@@ -87,6 +87,9 @@ $.conversionAdd('conversionName', function (conversion) {
         value: conversion.value,
         currency: conversion.currency,
     });
+
+    // Hide form & show success alert
+    $('#' + conversion.componentName).toggle('hide').parent().find('.alert.alert-success').toggle('show');
 });
 ```
 
