@@ -94,22 +94,22 @@ class ContactForm extends BaseControl
                 $values[$control->getName()] = $control->getValue();
             }
 
-            // Append own values
+            // Append core values
             $values = $values + [
                 'currency' => 'CZK',
                 'value' => 0.0,
                 'ip' => $_SERVER['REMOTE_ADDR'],
-                'componentName' => $form->getElementPrototype()->getAttribute('id')
             ];
 
             // Save conversion
             $conversion = $this->conversionManager->create('contactForm', new DateTime, $values);
 
-            // Append conversion values
+            // Append values
             $values = $values + [
-                'name' => $conversion->getName(),
                 'id' => $conversion->getId(),
-                'createdAt' => $conversion->getCreatedAt('d.m.Y H:i:s')
+                'createdAt' => $conversion->getCreatedAt('d.m.Y H:i:s'),
+                'name' => $conversion->getName(),
+                'componentName' => $form->getElementPrototype()->getAttribute('id')
             ];
 
             // Send mail
