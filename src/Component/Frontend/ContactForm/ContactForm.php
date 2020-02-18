@@ -98,7 +98,8 @@ class ContactForm extends BaseControl
             $values = $values + [
                 'currency' => 'CZK',
                 'value' => 0.0,
-                'ip' => $_SERVER['REMOTE_ADDR']
+                'ip' => $_SERVER['REMOTE_ADDR'],
+                'componentName' => $form->getElementPrototype()->getAttribute('id')
             ];
 
             // Save conversion
