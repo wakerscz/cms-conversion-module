@@ -1,0 +1,21 @@
+services:
+    - Wakers\ConversionModule\Manager\ConversionManager(%smtp.conversion%)
+    - Wakers\ConversionModule\Component\Frontend\ContactForm\ContactForm
+    IAppContacForm: Wakers\ConversionModule\Component\Frontend\ContactForm\IContactForm
+
+parameters:
+    smtp:
+        conversion:
+            sender:
+                name: ::getenv('MAIL_WEB_NAME')
+                email: ::getenv('SMTP_USERNAME')
+                to: ::getenv('MAIL_CLIENT')
+                bcc:
+                    - ::getenv('MAIL_ADMIN')
+
+            config:
+                host: ::getenv('SMTP_HOST')
+                username: ::getenv('SMTP_USERNAME')
+                password: ::getenv('SMTP_PASSWORD')
+                port: ::getenv('SMTP_PORT')
+                secure: ::getenv('SMTP_SECURE')

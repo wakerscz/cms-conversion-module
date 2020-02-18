@@ -1,0 +1,9 @@
+<table name="conversion" namespace="ConversionModule\Database" package="./conversion-module/">
+    <column name="id" type="INTEGER" required="TRUE" primaryKey="TRUE" autoIncrement="TRUE"/>
+    <column name="name" type="VARCHAR" required="TRUE" size="64"/>
+    <column name="params" type="LONGVARCHAR" required="TRUE" />
+
+    <behavior name="timestampable">
+        <parameter name="disable_updated_at" value="true" />
+    </behavior>
+</table>
