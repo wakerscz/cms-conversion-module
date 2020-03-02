@@ -29,6 +29,7 @@ $(function () {
     var FORM_TRUE_TOKEN = $input_token.data('token');
 
     setTimeout(function () {
+
         $input_token.each(function () {
             $(this).val(FORM_TRUE_TOKEN);
         });
@@ -36,5 +37,6 @@ $(function () {
         $input_token_check.each(function () {
             $(this).val('');
         });
-    }, FORM_TIMEOUT_SEC * 1_000);
+
+    }, FORM_TIMEOUT_SEC * 1000);
 });
