@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace Wakers\ConversionModule\Component\Frontend\ContactForm;
 
 use Nette\Application\UI\Form;
-use Nette\Mail\SmtpMailer;
 use Nette\Utils\DateTime;
 use Wakers\BaseModule\Component\Frontend\BaseControl;
 use Wakers\BaseModule\Util\AjaxValidate;
@@ -96,9 +95,10 @@ class ContactForm extends BaseControl
 
             // Append core values
             $values = $values + [
-                'currency' => 'CZK',
                 'value' => 0.0,
-                'ip' => $_SERVER['REMOTE_ADDR'],
+                'currency' => 'CZK',
+                'url' => $this->presenter->getHttpRequest()->getUrl(),
+                'ip' => $this->presenter->getHttpRequest()->getRemoteAddress(),
             ];
 
             // Save conversion
@@ -109,7 +109,7 @@ class ContactForm extends BaseControl
                 'id' => $conversion->getId(),
                 'createdAt' => $conversion->getCreatedAt('d.m.Y H:i:s'),
                 'name' => $conversion->getName(),
-                'componentName' => $form->getElementPrototype()->getAttribute('id')
+                'componentName' => $form->getElementPrototype()->getAttribute('id'),
             ];
 
             // Send mail
